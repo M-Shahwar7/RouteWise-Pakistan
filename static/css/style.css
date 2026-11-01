@@ -1,0 +1,444 @@
+
+/* =====================================
+   ROUTEWISE PAKISTAN
+   COMPLETE WEBSITE STYLING
+===================================== */
+
+
+/* GLOBAL RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    color: #172033;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+
+/* =====================================
+   HEADER
+===================================== */
+
+.site-header {
+    background: #172554;
+    color: white;
+    padding: 22px 0;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.site-header h2 {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.site-header p {
+    color: #cbd5e1;
+    font-size: 13px;
+}
+
+.header-badge {
+    border: 1px solid #64748b;
+    padding: 7px 13px;
+    border-radius: 20px;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+
+/* =====================================
+   HERO SECTION
+===================================== */
+
+.hero {
+    text-align: center;
+    padding: 65px 15px 40px;
+}
+
+.eyebrow {
+    color: #315efb;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.hero h1 {
+    font-size: 38px;
+    color: #172554;
+    margin: 12px 0;
+    line-height: 1.3;
+}
+
+.hero p {
+    color: #64748b;
+    max-width: 600px;
+    margin: auto;
+    font-size: 14px;
+}
+
+
+/* =====================================
+   ROUTE PLANNER CARD
+===================================== */
+
+.planner-card {
+    background: white;
+    max-width: 750px;
+    margin: 0 auto 50px;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 8px 35px rgba(0, 0, 0, 0.06);
+}
+
+.planner-card h2 {
+    font-size: 23px;
+    color: #172554;
+}
+
+.section-description {
+    color: #64748b;
+    font-size: 14px;
+    margin: 5px 0 25px;
+}
+
+
+/* CITY INPUTS */
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 9px;
+    font-size: 14px;
+}
+
+.form-group select {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background: white;
+    font-size: 14px;
+    color: #172033;
+    outline: none;
+}
+
+.form-group select:focus {
+    border-color: #315efb;
+    box-shadow: 0 0 0 3px rgba(49, 94, 251, 0.1);
+}
+
+
+/* =====================================
+   BUTTON
+===================================== */
+
+button {
+    width: 100%;
+    padding: 15px;
+    margin-top: 25px;
+    background: #315efb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+button:hover {
+    background: #2448ce;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+
+/* STATUS MESSAGE */
+
+#status {
+    margin-top: 15px;
+    color: #64748b;
+    font-size: 13px;
+    text-align: center;
+}
+
+
+/* =====================================
+   ALGORITHM RESULTS
+===================================== */
+
+.results {
+    padding-bottom: 55px;
+}
+
+.results[hidden] {
+    display: none;
+}
+
+.results-heading {
+    margin-bottom: 20px;
+}
+
+.results-heading h2 {
+    font-size: 27px;
+    color: #172554;
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+
+/* RESULT CARDS */
+
+.result-card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    padding: 22px;
+    border-radius: 12px;
+    min-width: 0;
+}
+
+.result-card.best-result {
+    border: 2px solid #16a34a;
+}
+
+.result-header {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+.result-header h3 {
+    font-size: 17px;
+    color: #172554;
+}
+
+.result-badge {
+    font-size: 11px;
+    color: #15803d;
+    font-weight: bold;
+}
+
+.path-label {
+    font-size: 12px;
+    color: #64748b;
+    margin-bottom: 5px;
+}
+
+.route-path {
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+    min-height: 70px;
+}
+
+
+/* RESULT METRICS */
+
+.metrics-grid {
+    display: grid;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.metric {
+    background: #f4f7fb;
+    padding: 12px;
+    border-radius: 7px;
+}
+
+.metric span {
+    display: block;
+    color: #64748b;
+    font-size: 11px;
+}
+
+.metric strong {
+    font-size: 16px;
+    color: #172554;
+}
+
+
+/* =====================================
+   INTERACTIVE MAP
+===================================== */
+
+.map-panel {
+    background: white;
+    padding: 25px;
+    margin-top: 25px;
+    margin-bottom: 35px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+}
+
+.map-heading {
+    margin-bottom: 18px;
+}
+
+.map-heading h3 {
+    font-size: 21px;
+    color: #172554;
+    margin-bottom: 5px;
+}
+
+.map-heading p {
+    font-size: 13px;
+    color: #64748b;
+}
+
+
+/* LEAFLET MAP CONTAINER */
+
+#route-map {
+    width: 100%;
+    height: 450px;
+    border-radius: 10px;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.leaflet-container {
+    font-family: Arial, sans-serif;
+    background: #e2e8f0;
+}
+
+
+/* MAP WARNING */
+
+.map-note {
+    font-size: 12px;
+    color: #9a3412;
+    background: #fff7ed;
+    padding: 12px;
+    border-radius: 7px;
+    margin-top: 15px;
+}
+
+
+/* =====================================
+   DATASET NOTICE
+===================================== */
+
+.dataset-note {
+    background: #fff7ed;
+    color: #9a3412;
+    border-radius: 8px;
+    padding: 14px;
+    font-size: 12px;
+    margin-top: 20px;
+}
+
+
+/* =====================================
+   FOOTER
+===================================== */
+
+footer {
+    background: #172554;
+    color: #cbd5e1;
+    text-align: center;
+    padding: 20px;
+    font-size: 12px;
+}
+
+
+/* =====================================
+   TABLET RESPONSIVENESS
+===================================== */
+
+@media (max-width: 800px) {
+
+    .results-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* =====================================
+   MOBILE RESPONSIVENESS
+===================================== */
+
+@media (max-width: 600px) {
+
+    .container {
+        width: 92%;
+    }
+
+    .hero {
+        padding-top: 40px;
+    }
+
+    .hero h1 {
+        font-size: 29px;
+    }
+
+    .hero p {
+        font-size: 13px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .planner-card {
+        padding: 22px;
+    }
+
+    .header-badge {
+        display: none;
+    }
+
+    .site-header h2 {
+        font-size: 21px;
+    }
+
+    .map-panel {
+        padding: 15px;
+    }
+
+    #route-map {
+        height: 350px;
+    }
+
+    .results-heading h2 {
+        font-size: 23px;
+    }
+
+}
