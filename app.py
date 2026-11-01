@@ -1,4 +1,6 @@
 
+import os
+
 from flask import Flask, render_template, jsonify, request
 
 from data_loader import load_dataset
@@ -32,13 +34,9 @@ CITIES, GRAPH = load_dataset()
 # =====================================
 
 ALGORITHMS = {
-
     "ucs": "Uniform Cost Search",
-
     "greedy": "Greedy Best-First Search",
-
     "astar": "A* Search"
-
 }
 
 
@@ -95,13 +93,11 @@ def get_cities():
 
         })
 
-
     # Sort cities alphabetically
 
     city_list.sort(
         key=lambda city: city["name"]
     )
-
 
     return jsonify({
 
@@ -119,19 +115,37 @@ def get_cities():
 @app.route("/api/compare", methods=["POST"])
 def compare_routes():
 
+    # Receive JSON request
 
-    # Receive frontend data
+    data = request.get_json(silent=True)
 
-    data = request.get_json(silent=True) or {}
+    # Validate request body
+
+    if not isinstance(data, dict):
+
+        return jsonify({
+
+            "error": "Request body must be a valid JSON object."
+
+        }), 400
 
     start = data.get("start")
 
     goal = data.get("goal")
 
+    # Validate city IDs
 
-    # Validate city selection
+    if (
 
-    if start not in CITIES or goal not in CITIES:
+        not isinstance(start, str)
+
+        or not isinstance(goal, str)
+
+        or start not in CITIES
+
+        or goal not in CITIES
+
+    ):
 
         return jsonify({
 
@@ -174,7 +188,6 @@ def compare_routes():
 
     results = {
 
-
         "ucs": uniform_cost_search(
 
             GRAPH,
@@ -184,7 +197,6 @@ def compare_routes():
             goal
 
         ),
-
 
         "greedy": greedy_best_first_search(
 
@@ -197,7 +209,6 @@ def compare_routes():
             greedy_heuristic
 
         ),
-
 
         "astar": a_star_search(
 
@@ -220,19 +231,15 @@ def compare_routes():
 
     comparison = []
 
-
     for algorithm, result in results.items():
-
 
         route = []
 
-
-        # Add city names and geographical coordinates
+        # Add city names and coordinates
 
         for city_id in result["path"]:
 
             city = CITIES[city_id]
-
 
             route.append({
 
@@ -281,6 +288,7 @@ def compare_routes():
         "dataset_status": (
 
             "Prototype dataset: road distances are illustrative "
+
             "and are not verified real-world measurements."
 
         )
@@ -289,9 +297,17 @@ def compare_routes():
 
 
 # =====================================
-# RUN FLASK APPLICATION
+# RUN LOCAL FLASK APPLICATION
 # =====================================
 
 if __name__ == "__main__":
 
-    app.run(debug=True)
+    app.run(
+
+        host="0.0.0.0",
+
+        port=int(os.environ.get("PORT", 5000)),
+
+        debug=os.environ.get("FLASK_DEBUG", "0") == "1"
+
+    )

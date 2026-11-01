@@ -3,19 +3,31 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>RouteWise Pakistan | AI Route Planner</title>
-
-    <!-- Website CSS -->
-    <link
-        rel="stylesheet"
-        href="{{ url_for('static', filename='css/style.css') }}"
+    <meta
+        name="description"
+        content="RouteWise Pakistan is an AI-powered inter-city route planner comparing UCS, Greedy Best-First Search and A* algorithms."
     >
 
-    <!-- Leaflet Map CSS -->
+    <meta name="theme-color" content="#ffffff">
+
+    <title>RouteWise Pakistan | AI Route Planner</title>
+
+
+    <!-- WEBSITE CSS -->
+
+    <link
+        rel="stylesheet"
+        href="/static/css/style.css"
+    >
+
+
+    <!-- LEAFLET MAP CSS -->
+
     <link
         rel="stylesheet"
         href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -23,21 +35,29 @@
 
 </head>
 
+
 <body>
 
+
     <!-- HEADER -->
+
     <header class="site-header">
 
         <div class="container header-content">
 
             <div>
+
                 <h2>RouteWise Pakistan</h2>
 
                 <p>AI-Powered Inter-City Route Planner</p>
+
             </div>
 
+
             <span class="header-badge">
+
                 SMART ROUTING
+
             </span>
 
         </div>
@@ -45,52 +65,78 @@
     </header>
 
 
+
     <!-- MAIN CONTENT -->
+
     <main class="container">
 
+
         <!-- HERO SECTION -->
+
         <section class="hero">
 
             <span class="eyebrow">
+
                 INTELLIGENT ROUTE PLANNING
+
             </span>
 
+
             <h1>
+
                 Find Your Best Route Across Pakistan
+
             </h1>
 
+
             <p>
+
                 Compare three Artificial Intelligence search
                 algorithms to find routes between Pakistani cities.
+
             </p>
 
         </section>
 
 
+
         <!-- ROUTE PLANNER -->
+
         <section class="planner-card">
 
             <h2>Plan Your Journey</h2>
 
+
             <p class="section-description">
+
                 Select your starting point and destination.
+
             </p>
+
 
             <form id="route-form">
 
+
                 <div class="form-grid">
 
+
                     <!-- STARTING CITY -->
+
                     <div class="form-group">
 
                         <label for="start">
+
                             Starting City
+
                         </label>
+
 
                         <select id="start" required>
 
                             <option value="">
+
                                 Loading cities...
+
                             </option>
 
                         </select>
@@ -98,126 +144,197 @@
                     </div>
 
 
+
                     <!-- DESTINATION CITY -->
+
                     <div class="form-group">
 
                         <label for="destination">
+
                             Destination City
+
                         </label>
+
 
                         <select id="destination" required>
 
                             <option value="">
+
                                 Loading cities...
+
                             </option>
 
                         </select>
 
                     </div>
 
+
                 </div>
 
 
+
                 <button type="submit" id="find-route">
+
                     Compare AI Algorithms
+
                 </button>
+
 
             </form>
 
 
+
             <!-- STATUS MESSAGE -->
+
             <p id="status" role="status">
+
                 Connecting to RouteWise backend...
+
             </p>
+
 
         </section>
 
 
+
         <!-- ALGORITHM RESULTS -->
+
         <section id="results" class="results" hidden>
 
+
             <div class="results-heading">
+
 
                 <div>
 
                     <span class="eyebrow">
+
                         SEARCH ANALYSIS
+
                     </span>
 
+
                     <h2>
+
                         Algorithm Comparison
+
                     </h2>
 
                 </div>
 
+
             </div>
+
 
 
             <!-- THREE ALGORITHM RESULT CARDS -->
-            <div id="results-grid" class="results-grid">
+
+            <div
+                id="results-grid"
+                class="results-grid"
+            >
+
             </div>
 
 
+
             <!-- INTERACTIVE MAP SECTION -->
+
             <div class="map-panel">
+
 
                 <div class="map-heading">
 
+
                     <h3>
+
                         Interactive Pakistan Route Map
+
                     </h3>
 
+
                     <p>
+
                         Explore the routes calculated by our
                         three AI algorithms.
+
                     </p>
+
 
                 </div>
 
 
+
                 <!-- LEAFLET MAP -->
+
                 <div id="route-map"></div>
 
 
+
                 <p class="map-note">
+
                     Note: Map lines currently represent
                     connections between city coordinates,
                     not actual road geometry.
+
                 </p>
+
 
             </div>
 
 
+
             <!-- DATASET WARNING -->
-            <p id="dataset-note" class="dataset-note">
+
+            <p
+                id="dataset-note"
+                class="dataset-note"
+            >
+
             </p>
 
+
         </section>
+
 
     </main>
 
 
+
     <!-- FOOTER -->
+
     <footer>
+
 
         <div class="container">
 
+
             <p>
+
                 RouteWise Pakistan |
                 AI Search Algorithms Project
+
             </p>
 
+
         </div>
+
 
     </footer>
 
 
+
     <!-- LEAFLET MAP JAVASCRIPT -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <script
+        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    ></script>
 
 
-    <!-- OUR WEBSITE JAVASCRIPT -->
-    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+    <!-- WEBSITE JAVASCRIPT -->
+
+    <script src="/static/js/app.js"></script>
 
 
 </body>
